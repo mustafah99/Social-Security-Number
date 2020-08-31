@@ -7,13 +7,22 @@ namespace Social_Security_Number
     {
         public static void Main(string[] args)
         {
-            // Social Security Number Input to Evaluate if Person is Male or Female
-            Console.Write("Enter Your Social Security Number in Format (000000-XXXX): ");
+            string socialSecurityNumber;
 
+            if (args.Length > 0)
+            {
+                // Social Security Number Input to Evaluate if Person is Male or Female
+                Console.WriteLine($"You have provided {args[0]}");
+                socialSecurityNumber = args[0];
+            }
+            else
+            {
+                Console.WriteLine("Enter Your Social Security Number in Format (YYMMDD-XXXX): ");
+                socialSecurityNumber = Console.ReadLine();
+            }
 
             // Variable named socialSecurityNumber with an argument of Console.ReadLine() method.
 
-            string socialSecurityNumber = Console.ReadLine();
             string gender;
 
             int genderNumber = int.Parse(socialSecurityNumber.Substring(socialSecurityNumber.Length - 2, 1));
