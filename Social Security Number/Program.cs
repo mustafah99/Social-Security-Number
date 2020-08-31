@@ -12,7 +12,7 @@ namespace Social_Security_Number
             if (args.Length > 0)
             {
                 // Social Security Number Input to Evaluate if Person is Male or Female
-                Console.WriteLine($"You have provided {args[0]}");
+                Console.WriteLine($"You have provided Social Security Number {args[0]}");
                 socialSecurityNumber = args[0];
             }
             else
