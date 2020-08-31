@@ -5,7 +5,7 @@ namespace Social_Security_Number
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Social Security Number Input to Evaluate if Person is Male or Female
             Console.Write("Enter Your Social Security Number in Format (000000-XXXX): ");
