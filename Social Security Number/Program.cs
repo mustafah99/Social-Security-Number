@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Social_Security_Number
 {
@@ -13,20 +14,25 @@ namespace Social_Security_Number
             // Variable named socialSecurityNumber with an argument of Console.ReadLine() method.
 
             string socialSecurityNumber = Console.ReadLine();
+            string gender;
 
-            int genderNumber = int.Parse(socialSecurityNumber.Substring(socialSecurityNumber.Length - 2,1));
+            int genderNumber = int.Parse(socialSecurityNumber.Substring(socialSecurityNumber.Length - 2, 1));
 
-            string dateToday = socialSecurityNumber.Substring(0, 6);
+            bool isGender = genderNumber % 2 == 0;
 
+            gender = isGender ? "Female" : "Male";
 
+            DateTime birthDate = DateTime.ParseExact(socialSecurityNumber.Substring(0, 6), "yyMMdd", CultureInfo.InvariantCulture);
 
-            if (genderNumber % 2 == 0)
+            int age = DateTime.Now.Year - birthDate.Year;
+
+            if ((birthDate.Month > DateTime.Now.Month) || (birthDate.Month == DateTime.Now.Month && birthDate.Day > DateTime.Now.Day))
             {
-                Console.WriteLine($"You are a Female at the age of {age}.");
+                age--;
             }
             else
             {
-                Console.WriteLine($"You are a Male at the age of {age}");
+                Console.WriteLine($"You are a {gender} at the age of {age}");
             }
         }
     }
